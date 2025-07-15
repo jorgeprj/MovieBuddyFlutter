@@ -36,22 +36,24 @@ class _HomePageState extends State<HomePage> {
       body: movieViewModel.isLoading
           ? Center(child: CircularProgressIndicator())
           : movieViewModel.error != null
-          ? Center(child: Text('Erro: ${movieViewModel.error}'))
-          : SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (movieViewModel.favoriteMovies.isNotEmpty) ...[
-              SectionTitle(title: 'Filmes Favoritos'),
-              MovieList(movies: movieViewModel.favoriteMovies),
-            ],
-            SectionTitle(title: 'Filmes em Alta'),
-            MovieList(movies: movieViewModel.popularMovies),
-            SectionTitle(title: 'Lançamentos Recentes'),
-            MovieList(movies: movieViewModel.latestMovies),
-          ],
-        ),
-      ),
+              ? Center(child: Text('Erro: ${movieViewModel.error}'))
+              : SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (movieViewModel.favoriteMovies.isNotEmpty) ...[
+                        SectionTitle(title: 'Filmes Favoritos'),
+                        MovieList(movies: movieViewModel.favoriteMovies),
+                        SizedBox(height: 16), 
+                      ],
+                      SectionTitle(title: 'Filmes em Alta'),
+                      MovieList(movies: movieViewModel.popularMovies),
+                      SizedBox(height: 16),
+                      SectionTitle(title: 'Lançamentos Recentes'),
+                      MovieList(movies: movieViewModel.latestMovies),
+                    ],
+                  ),
+                ),
     );
   }
 }
@@ -93,25 +95,42 @@ class MovieList extends StatelessWidget {
                       .loadFavoriteMovies();
                 });
               },
-              child: Column(
-                children: [
-                  Image.network(
-                    movie.fullPosterPath,
-                    width: 120,
-                    height: 180,
-                    fit: BoxFit.cover,
-                  ),
-                  SizedBox(height: 8),
-                  SizedBox(
-                    width: 120,
-                    child: Text(
-                      movie.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 6,
+                      offset: Offset(0, 4),
                     ),
-                  )
-                ],
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(8)),
+                      child: Image.network(
+                        movie.fullPosterPath,
+                        width: 120,
+                        height: 180,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    SizedBox(
+                      width: 120,
+                      child: Text(
+                        movie.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           );
