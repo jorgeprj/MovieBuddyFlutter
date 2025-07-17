@@ -134,6 +134,10 @@ abstract class AppLocalizations {
   /// **'Latest Releases'**
   String get latestMovies;
 
+  /// No description provided for @favoriteMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite Movies'**
   String get favoriteMovies;
 }
 
