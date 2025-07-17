@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
         Locale('en', ''),
         Locale('pt', ''),
       ],
-      locale: const Locale('pt'), // pode usar Locale('en') para testar inglês
+      locale: const Locale('en'),
       initialRoute: '/login',
       routes: {
         '/login': (context) => LoginPage(),

@@ -133,6 +133,8 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Latest Releases'**
   String get latestMovies;
+
+  String get favoriteMovies;
 }
 
 class _AppLocalizationsDelegate

@@ -25,4 +25,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get latestMovies => 'Latest Releases';
+
+  @override
+  String get favoriteMovies => 'Favorite Movies';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:primeiro_app/core/localization/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../viewmodel/movie_viewmodel.dart';
@@ -42,14 +43,14 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (movieViewModel.favoriteMovies.isNotEmpty) ...[
-                        SectionTitle(title: 'Filmes Favoritos'),
+                        SectionTitle(title: AppLocalizations.of(context)!.favoriteMovies),
                         MovieList(movies: movieViewModel.favoriteMovies),
                         SizedBox(height: 16), 
                       ],
-                      SectionTitle(title: 'Filmes em Alta'),
+                      SectionTitle(title: AppLocalizations.of(context)!.popularMovies),
                       MovieList(movies: movieViewModel.popularMovies),
                       SizedBox(height: 16),
-                      SectionTitle(title: 'Lançamentos Recentes'),
+                      SectionTitle(title: AppLocalizations.of(context)!.latestMovies),
                       MovieList(movies: movieViewModel.latestMovies),
                     ],
                   ),

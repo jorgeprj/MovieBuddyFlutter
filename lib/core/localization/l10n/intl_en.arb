@@ -4,5 +4,6 @@
   "password": "Password",
   "search": "Search",
   "popularMovies": "Popular Movies",
-  "latestMovies": "Latest Releases"
+  "latestMovies": "Latest Releases",
+  "favoriteMovies": "Favorite Movies"
 }
