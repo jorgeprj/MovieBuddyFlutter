@@ -1,5 +1,8 @@
 # MovieBuddy - App Flutter para Filmes com TMDB
 
+- Jorge (790942)
+- Giullio (790965)
+
 ## Descrição
 
 MovieBuddy é um aplicativo Flutter para exibir filmes populares, lançamentos e permitir busca utilizando a API do TMDB (The Movie Database).
